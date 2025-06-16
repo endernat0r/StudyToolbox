@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Task Manager.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <header>
+        <h1>
+            StudyToolBox
+        </h1>
+    </header>
+    <div class="topnav">
+        <a class="passive" href="../Home/main.html">Home</a>
+        <a class="passive" href="../Pomodro/pomodro.html">Pomodro</a>
+        <a class="active"  href="../Task Manager/Task Manager.html">Task Manager</a>
+        <a class="passive" href="#about">Program Manager</a>
+    </div>  
+    
+<main>
+        <div class="task-form">
+            <input type="text" id="task" placeholder="Enter task...">
+            <select id="priority">
+                <option value="top">Top Priority</option>
+                <option value="middle">Middle Priority</option>
+                <option value="low">Less Priority</option>
+            </select>
+            <input type="date" id="deadline">
+            <button id="no-deadline">No Deadline</button>
+            <button id="add-task">Add Task</button>
+        </div>
+        <div class="task-list" id="task-list">
+            <!-- Tasks will be added here dynamically -->
+        </div>
+        <script src="Task Manager.js"></script>
+</body>
+<link rel="script" href="script.js">
+</html> 
+<script>
+    // JavaScript code to handle task addition and display
+    document.getElementById('add-task').addEventListener('click', function() {
+        const taskInput = document.getElementById('task');
+        const priorityInput = document.getElementById('priority');
+        const deadlineInput = document.getElementById('deadline');
+        const taskList = document.getElementById('task-list');
+
+        if (taskInput.value.trim() === '') {
+            alert('Please enter a task.');
+            return;
+        }
+
+        const taskItem = document.createElement('div');
+        taskItem.className = 'task-item';
+        taskItem.innerHTML = `
+            <span class="task-name">${taskInput.value}</span>
+            <span class="task-priority">${priorityInput.value}</span>
+            <span class="task-deadline">${deadlineInput.value}</span>
+            <button class="delete-task">Delete</button>
+        `;
+
+        taskItem.querySelector('.delete-task').addEventListener('click', function() {
+            taskList.removeChild(taskItem);
+        });
+
+        taskList.appendChild(taskItem);
+
+        // Clear inputs
+        taskInput.value = '';
+        priorityInput.value = 'top';
+        deadlineInput.value = '';
+    });
