@@ -14,7 +14,7 @@
     </header>
     <div class="topnav">
         <a class="passive" href="../Home/main.html">Home</a>
-        <a class="passive" href="../Pomodro/pomodro.html">Pomodro</a>
+        <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
         <a class="active"  href="../Task Manager/Task Manager.html">Task Manager</a>
         <a class="passive" href="#about">Program Manager</a>
     </div>  
@@ -28,18 +28,16 @@
                 <option value="low">Less Priority</option>
             </select>
             <input type="date" id="deadline">
-            <button id="no-deadline">No Deadline</button>
+            <button id="no-deadline">No Deadline</button>  
             <button id="add-task">Add Task</button>
         </div>
         <div class="task-list" id="task-list">
-            <!-- Tasks will be added here dynamically -->
         </div>
         <script src="Task Manager.js"></script>
 </body>
 <link rel="script" href="script.js">
 </html> 
 <script>
-    // JavaScript code to handle task addition and display
     document.getElementById('add-task').addEventListener('click', function() {
         const taskInput = document.getElementById('task');
         const priorityInput = document.getElementById('priority');
@@ -65,8 +63,6 @@
         });
 
         taskList.appendChild(taskItem);
-
-        // Clear inputs
         taskInput.value = '';
         priorityInput.value = 'top';
         deadlineInput.value = '';
