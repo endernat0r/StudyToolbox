@@ -1,0 +1,84 @@
+header {
+  background-color: #1abc9c;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 2vw;
+}
+
+.topnav{
+  background-color: #333;
+  overflow: hidden;
+  border: 1px gray solid;
+}
+
+.topnav a{
+    float: left;
+    color: white;
+    padding: 14px 9px;
+    text-decoration: none;
+    border: 1px gray solid;
+}
+
+.topnav a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active{
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pomodoro-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.timer-display {
+    font-size: 4em;
+    color: #d9534f;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.timer-display span {
+  display: inline-block;
+  width: 1.5em;
+  text-align: center;
+}
+
+.controls button {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.controls button#pause {
+    background-color: #f0ad4e;
+}
+
+.controls button#reset {
+    background-color: #777;
+}
+
+.controls button:hover {
+  opacity: 0.7;
+}
+
+.controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
