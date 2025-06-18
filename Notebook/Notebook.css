@@ -30,6 +30,20 @@ header {
     color: white;
 }
 
+.topnav a.signup {
+  background-color: #00b7ff;
+  color: white;
+  margin-left: auto;
+}
+
+.auth-container {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 10px; 
+}
+
 body{
   font-family:'Ariel',sans-serif;
   background: linear-gradient(to bottom right, rgb(142, 255, 236), rgb(190, 165, 247));

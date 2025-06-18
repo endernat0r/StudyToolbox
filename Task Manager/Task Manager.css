@@ -30,6 +30,12 @@ header {
     color: white;
 }
 
+.topnav a.signup {
+  background-color: #00b7ff;
+  color: white;
+  margin-left: auto;
+}
+
 main {
     max-width: 800px;
     margin: 0 auto;
@@ -58,25 +64,25 @@ main {
 }
 
 .task button {
-    background-color: white; /* Initial background: white */
-    color: transparent; /* Hide any direct text content */
-    border: 2px solid #ccc; /* Initial border for the circle */
-    border-radius: 50%; /* Make it a circle */
-    width: 28px; /* Adjust size as needed */
-    height: 28px; /* Adjust size as needed */
+    background-color: white; 
+    color: transparent; 
+    border: 2px solid #ccc; 
+    border-radius: 50%;
+    width: 28px; 
+    height: 28px; 
     cursor: pointer;
-    position: relative; /* For pseudo-element positioning */
-    padding: 0; /* Remove default padding */
-    display: flex; /* For centering pseudo-element */
+    position: relative; 
+    padding: 0; 
+    display: flex; 
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 .task button::before {
-    content: '✔'; /* Tick character */
-    font-size: 18px; /* Size of the tick */
-    color: transparent; /* Initially transparent */
+    content: '✔'; 
+    font-size: 18px; 
+    color: transparent; 
     position: absolute; 
     top: 50%;
     left: 50%;
@@ -85,20 +91,19 @@ main {
 }
 
 .task button:hover::before {
-    /* Show a slight shadowish tick on hover */
-    color: rgba(40, 167, 69, 0.3); /* Light, semi-transparent version of the 'done' color */
+    color: rgba(40, 167, 69, 0.3); 
 }
 
 .task button.done {
-    background-color: #28a745; /* Green background when done */
-    border-color: #28a745; /* Green border when done */
+    background-color: #28a745; 
+    border-color: #28a745; 
 }
 
 .task button.done::before {
-    color: white; /* White tick when done */
+    color: white; 
 }
 
-/* Ensure disabled state doesn't hide the 'done' appearance */
+
 .task button:disabled {
     cursor: default;
 }
@@ -110,4 +115,12 @@ main {
 
 .task button.done:disabled::before {
     color: white;
+}
+
+.auth-container {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row; /*For the sign-up button*/
+  align-items: center;
+  gap: 10px; 
 }

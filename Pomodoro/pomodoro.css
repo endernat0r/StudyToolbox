@@ -36,6 +36,12 @@ header {
     color: white;
 }
 
+.topnav a.signup {
+  background-color: #00b7ff;
+  color: white;
+  margin-left: auto;
+}
+
 .pomodoro-container {
   background-color: white;
   padding: 30px;
@@ -87,4 +93,12 @@ header {
     background-color: #ccc;
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+.auth-container {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row; /*For the sign-up button*/
+  align-items: center;
+  gap: 10px; 
 }
