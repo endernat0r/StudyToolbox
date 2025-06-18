@@ -16,8 +16,22 @@
         <a class="passive"  href="../Home/main.html">Home</a>
         <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
         <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
-        <a class="active" href="../Notebook/Notebook.html">Notebook</a>
+        <a class="active" href="../Notebook/Notebook.html">Notes</a>
     </div>
+    <div id="container">
+
+        <div id="list-header">
+            <div id="addNoteDiv" onclick="popup()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="blankDiv"></div>
+            <div class="blankDiv"></div>
+        </div>
+        
+        <div id="list-container">
+            <ul id="notes-list"></ul>
+        </div>
+    </div>
+    <script src="Notebook.js"></script>
 </body>
-<link rel="script" href="Notebook.js">  
-</html> 
+</html>
