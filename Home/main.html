@@ -8,16 +8,23 @@
 </head>
 <body>
     <header>
-        <h1>
-            StudyToolBox
-        </h1>
+        <h1>StudyToolBox</h1>
     </header>
     <div class="topnav">
-        <a class="active"  href="../Home/main.html">Home</a>
+        <a class="active" href="../Home/main.html">Home</a>
         <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
         <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
         <a class="passive" href="../Notebook/Notebook.html">Notebook</a>
+        <a class="signup" href="../Login and Register/index.html">Sign-up & Sign-In</a>
+    </div>
+    <h2>Welcome to the Homepage</h2>
+    
+    <div id="user-info">
+        <div>First Name: <span id="loggedUserFName"></span></div>
+        <div>Last Name: <span id="loggedUserLName"></span></div>
+        <div>Email: <span id="loggedUserEmail"></span></div>
+        <button id="logout">Logout</button>
     </div>
 </body>
-<link rel="script" href="script.js">
-</html> 
+<script type="module" src="script.js"></script>
+</html>
