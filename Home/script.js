@@ -15,60 +15,93 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Debug log
-console.log("Script loaded, auth and db initialized.");
+// Select the auth container element
+const authContainer = document.querySelector('.auth-container');
 
-onAuthStateChanged(auth, (user) => {
-  console.log("Auth state changed:", user);
-  const loggedInUserId = localStorage.getItem('loggedInUserId');
-  
-  // Debug log for local storage value
-  console.log("Logged in User Id from localStorage:", loggedInUserId);
-  
-  if (loggedInUserId) {
-    const docRef = doc(db, "users", loggedInUserId);
-    getDoc(docRef)
-      .then((docSnap) => {
-        if (docSnap.exists()) {
-          const userData = docSnap.data();
-          console.log("User data:", userData);
-          // Check if all required data is present
-          if (userData.firstName && userData.lastName && userData.email) {
-            document.getElementById('loggedUserFName').innerText = userData.firstName;
-            document.getElementById('loggedUserLName').innerText = userData.lastName;
-            document.getElementById('loggedUserEmail').innerText = userData.email;
-          } else {
-            console.warn("User data missing required fields. Hiding user info.");
-            document.getElementById('user-info').style.display = "none";
-          }
-        } else {
-          console.warn("No document found for the user id:", loggedInUserId);
-          document.getElementById('user-info').style.display = "none";
-        }
+function renderLoggedInState(userData) {
+  authContainer.innerHTML = `
+    <a class="signup" id="profileBtn" href="#">Profile</a>
+    <a class="signup" id="authAction" href="#">Logout</a>
+  `;
+
+  // Attach logout functionality
+  const authAction = document.getElementById('authAction');
+  authAction.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem('loggedInUserId');
+    signOut(auth)
+      .then(() => {
+        window.location.href = "main.html"; 
       })
       .catch((error) => {
-        console.error("Error fetching user document:", error);
-        document.getElementById('user-info').style.display = "none";
+        console.error("Error signing out:", error);
       });
+  });
+  
+  // Attach profile modal functionality
+  const profileBtn = document.getElementById('profileBtn');
+  profileBtn.addEventListener('click', () => {
+    document.getElementById('profileModal').style.display = "block";
+  });
+  
+  // Set modal content if available
+  if (userData) {
+    document.getElementById('profileNickname').innerText = userData.nickname;
+    document.getElementById('profileFName').innerText = userData.firstName;
+    document.getElementById('profileLName').innerText = userData.lastName;
+    document.getElementById('profileEmail').innerText = userData.email;
+  }
+}
+
+function renderLoggedOutState() {
+  authContainer.innerHTML = `<a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>`;
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+      const docRef = doc(db, "users", loggedInUserId);
+      getDoc(docRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            if (userData.firstName && userData.lastName && userData.email && userData.nickname) {
+              renderLoggedInState(userData);
+            } else {
+              console.warn("User data missing required fields.");
+              renderLoggedInState(null);
+            }
+          } else {
+            console.warn("No document found for user id:", loggedInUserId);
+            renderLoggedInState(null);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user document:", error);
+          renderLoggedInState(null);
+        });
+    } else {
+      renderLoggedOutState();
+    }
   } else {
-    console.warn("No logged in user id found in localStorage.");
-    document.getElementById('user-info').style.display = "none";
+    renderLoggedOutState();
   }
 });
 
-const logoutButton = document.getElementById('logout');
-logoutButton.addEventListener('click', () => {
-  localStorage.removeItem('loggedInUserId');
-  signOut(auth)
-    .then(() => {
-      window.location.href = '../Login and Register/index.html';
-    })
-    .catch((error) => {
-      console.error('Error signing out:', error);
-    });
+// Modal Close functionality
+const modalClose = document.querySelector('.modal .close');
+modalClose.addEventListener('click', () => {
+  document.getElementById('profileModal').style.display = "none";
+});
+window.addEventListener('click', (event) => {
+  const profileModal = document.getElementById('profileModal');
+  if (event.target == profileModal) {
+    profileModal.style.display = "none";
+  }
 });
 
-// Smooth scroll function for anchor links
+// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
