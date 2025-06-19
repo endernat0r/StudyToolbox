@@ -5,7 +5,7 @@ const noDeadlineButton = document.getElementById("no-deadline");
 const addTaskButton = document.getElementById("add-task");
 const taskList = document.getElementById("task-list");
 
-// Toggle "No Deadline" option
+
 noDeadlineButton.addEventListener("click", () => {
     if (noDeadlineButton.classList.contains("active")) {
         noDeadlineButton.classList.remove("active");
@@ -23,13 +23,13 @@ addTaskButton.addEventListener("click", () => {
     const priority = priorityInput.value;
     let deadline = deadlineInput.value;
     
-    // Validate task and deadline (only if deadline is enabled)
+    
     if (task.trim() === "" || (!deadlineInput.disabled && deadline === "")) {
         alert("Please enter a task and select an upcoming date or choose 'No Deadline'.");
         return;
     }
     
-    // If deadline is enabled, check if it's in the future
+    
     if (!deadlineInput.disabled) {
         const selectedDate = new Date(deadline);
         const currentDate = new Date();
@@ -38,7 +38,6 @@ addTaskButton.addEventListener("click", () => {
             return;
         }
     } else {
-        // When "No Deadline" is active, use a placeholder value
         deadline = "None";
     }
 

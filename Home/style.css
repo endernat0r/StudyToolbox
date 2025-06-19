@@ -17,11 +17,11 @@ header{
   background-color: #333;
   overflow: hidden;
   border: 1px gray solid;
-  display: flex; /* Enable Flexbox */
+  display: flex; 
 }
 
 .topnav a{
-  /* Remove float left as it's now a flex item */
+  
   color: white;
   padding: 14px 9px;
   text-decoration: none;
