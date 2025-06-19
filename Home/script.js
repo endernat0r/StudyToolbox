@@ -15,7 +15,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Select the auth container element
 const authContainer = document.querySelector('.auth-container');
 
 function renderLoggedInState(userData) {
@@ -24,7 +23,6 @@ function renderLoggedInState(userData) {
     <a class="signup" id="authAction" href="#">Logout</a>
   `;
 
-  // Attach logout functionality
   const authAction = document.getElementById('authAction');
   authAction.addEventListener('click', (e) => {
     e.preventDefault();
@@ -38,13 +36,11 @@ function renderLoggedInState(userData) {
       });
   });
   
-  // Attach profile modal functionality
   const profileBtn = document.getElementById('profileBtn');
   profileBtn.addEventListener('click', () => {
     document.getElementById('profileModal').style.display = "block";
   });
   
-  // Set modal content if available
   if (userData) {
     document.getElementById('profileNickname').innerText = userData.nickname;
     document.getElementById('profileFName').innerText = userData.firstName;
@@ -89,7 +85,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Modal Close functionality
 const modalClose = document.querySelector('.modal .close');
 modalClose.addEventListener('click', () => {
   document.getElementById('profileModal').style.display = "none";
@@ -101,7 +96,6 @@ window.addEventListener('click', (event) => {
   }
 });
 
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
