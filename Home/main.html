@@ -15,9 +15,13 @@
       <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
       <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
       <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+      <div class="spacer"></div>
       <div class="auth-container">
          <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
       </div>
+      <button id="mode-toggle" title="Toggle Light/Dark">
+        <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+      </button>
   </div>
   <h2>Welcome to the Homepage</h2>
   
@@ -34,4 +38,15 @@
   
 </body>
 <script type="module" src="script.js"></script>
+<script>
+// Dark mode toggle script
+const modeToggle = document.getElementById('mode-toggle');
+const modeIcon = document.getElementById('mode-icon');
+
+modeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('darkmode');
+  const isDark = document.body.classList.contains('darkmode');
+  modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
+});
+</script>
 </html>

@@ -1,73 +1,140 @@
+:root {
+  --body-background: #f4f4f4;
+  --text-color: #000;
+  --header-background: #1abc9c;
+  --header-color: #fff;
+  --topnav-background: #333;
+  --topnav-color: #fff;
+  --topnav-hover-background: #ddd;
+  --topnav-hover-color: #000;
+  --border-color: gray;
+  --topnav-active-background: #4CAF50;
+  --topnav-signup-background: #00b7ff;
+}
+
+.darkmode {
+  --body-background: #DFD0B8;
+  --text-color: #393E46;
+  --header-background: #393E46;
+  --header-color: #DFD0B8;
+  --topnav-background: #393E46;
+  --topnav-color: #DFD0B8;
+  --topnav-hover-background: #222831;
+  --topnav-hover-color: #DFD0B8;
+  --border-color: #948979;
+  --topnav-active-background: #948979;
+  --topnav-signup-background: #948979;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: var(--body-background);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #1abc9c;
-  color: white;
+  background-color: var(--header-background);
+  color: var(--header-color);
   padding: 12px;
   text-align: center;
   font-size: 2vw;
 }
 
-.topnav{
-  background-color: #333;
+.topnav {
+  display: flex;
+  align-items: center;
+  background-color: var(--topnav-background);
+  border: 1px solid var(--border-color);
   overflow: hidden;
-  border: 1px gray solid;
 }
 
-.topnav a{
-    float: left;
-    color: white;
-    padding: 14px 9px;
-    text-decoration: none;
-    border: 1px gray solid;
+.topnav a {
+  color: var(--topnav-color);
+  padding: 14px 9px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
 }
 
-.topnav a:hover{
-    background-color: #ddd;
-    color: black;
+.topnav a:hover {
+  background-color: var(--topnav-hover-background);
+  color: var(--topnav-hover-color);
 }
 
-.topnav a.active{
-    background-color: #4CAF50;
-    color: white;
+.topnav a.active {
+  background-color: var(--topnav-active-background);
+  color: var(--topnav-color);
 }
 
 .topnav a.signup {
-  background-color: #00b7ff;
-  color: white;
-  margin-left: auto;
+  background-color: var(--topnav-signup-background);
+  color: var(--header-color);
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+#mode-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#mode-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 3rem;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
 .task-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form select {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.task-form button {
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .task-list {
-    border: 1px solid #ddd;
-    padding: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 
 .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: white;
 }
 
 .task button {

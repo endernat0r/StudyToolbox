@@ -8,21 +8,21 @@
 </head>
 <body>
     <header>
-        <h1>
-            StudyToolBox
-        </h1>
+        <h1>StudyToolBox</h1>
     </header>
     <div class="topnav">
-        <a class="passive"  href="../Home/main.html">Home</a>
+        <a class="passive" href="../Home/main.html">Home</a>
         <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
         <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
         <a class="active" href="../Notebook/Notebook.html">Notes</a>
-     <div class="auth-container">
-         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
-      </div>
+        <div class="auth-container">
+             <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
+        </div>
+        <button id="mode-toggle" title="Toggle Light/Dark">
+          <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+        </button>
     </div>
     <div id="container">
-
         <div id="list-header">
             <div id="addNoteDiv" onclick="popup()">
                 <i class="fa-solid fa-plus"></i>
@@ -37,14 +37,21 @@
         </div>
     </div>
     <script src="Notebook.js"></script>
+    <script>
+    // Dark mode toggle script for Notebook page
+    const modeToggle = document.getElementById('mode-toggle');
+    const modeIcon = document.getElementById('mode-icon');
+
+    modeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('darkmode');
+      const isDark = document.body.classList.contains('darkmode');
+      modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
+    });
+    </script>
     <script type="module">
       import { setupAuth } from "../Home/auth.js";
       setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
     </script>
-<script type="module">
-  import { setupAuth } from "../Home/auth.js";
-  setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
-</script>
 <script type="module">
   import { setupAuth } from "../Home/auth.js";
   setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");

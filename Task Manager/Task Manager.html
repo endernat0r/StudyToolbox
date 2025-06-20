@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Task Manager.css">
-    <title>Task Manager</title>
-</head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Task Manager.css">
+  <title>Task Manager</title>
+</head>
 <body>
-    <header>
-        <h1>
-            StudyToolBox
-        </h1>
-    </header>
-    <div class="topnav">
-        <a class="passive" href="../Home/main.html">Home</a>
-        <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
-        <a class="active"  href="../Task Manager/Task Manager.html">Task Manager</a>
-        <a class="passive" href="../Notebook/Notebook.html">Notes</a>
-      <div class="auth-container">
-         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
-      </div>
-    </div>  
-    
-<main>
-        <div class="task-form">
-            <input type="text" id="task" placeholder="Enter task...">
-            <select id="priority">
-                <option value="top">Top Priority</option>
-                <option value="middle">Middle Priority</option>
-                <option value="low">Less Priority</option>
-            </select>
-            <input type="date" id="deadline">
-            <button id="no-deadline">No Deadline</button> 
-            <button id="add-task">Add Task</button>
-        </div>
-        <div class="task-list" id="task-list">
-        </div>
-        <script src="Task Manager.js"></script>
+  <header>
+    <h1>StudyToolBox</h1>
+  </header>
+  <div class="topnav">
+    <a class="passive" href="../Home/main.html">Home</a>
+    <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
+    <a class="active" href="../Task Manager/Task Manager.html">Task Manager</a>
+    <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+    <div class="spacer"></div>
+    <div class="auth-container">
+      <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up &amp; Sign-In</a>
+    </div>
+    <button id="mode-toggle" title="Toggle Light/Dark">
+      <img id="mode-icon" src="darkmode.png" alt="Toggle Mode">
+    </button>
+  </div>
+  
+  <main>
+    <div class="task-form">
+      <input type="text" id="task" placeholder="Enter task...">
+      <select id="priority">
+        <option value="top">Top Priority</option>
+        <option value="middle">Middle Priority</option>
+        <option value="low">Less Priority</option>
+      </select>
+      <input type="date" id="deadline">
+      <button id="no-deadline">No Deadline</button>
+      <button id="add-task">Add Task</button>
+    </div>
+    <div class="task-list" id="task-list">
+      <!-- Tasks will be added here -->
+    </div>
+  </main>
+  
+  <script src="Task Manager.js"></script>
+  <script>
+    // Dark mode toggle script
+    const modeToggle = document.getElementById('mode-toggle');
+    const modeIcon = document.getElementById('mode-icon');
+    modeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('darkmode');
+      const isDark = document.body.classList.contains('darkmode');
+      modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
+    });
+  </script>
         <script type="module">
       import { setupAuth } from "../Home/auth.js";
       setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
@@ -50,7 +65,7 @@
   setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
 </script>
 </body>
-</html> 
+</html>
 <script>
     document.getElementById('add-task').addEventListener('click', function() {
         const taskInput = document.getElementById('task');
