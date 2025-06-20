@@ -154,7 +154,7 @@ header {
   border: 1px solid var(--border-color);
   padding: 1px 1px;
   border-radius: 3px;
-  
+  }
 .auth-container {
   display: flex;
 justify-content: flex-end; 
