@@ -97,9 +97,12 @@ header {
 }
 
 .auth-container {
-  margin-left: auto;
   display: flex;
-  flex-direction: row; /*For the sign-up button*/
+justify-content: flex-end; 
   align-items: center;
-  gap: 10px; 
+  gap: 10px;  
+}
+
+.auth-container a.signup {
+  margin-left: 0 !important;
 }

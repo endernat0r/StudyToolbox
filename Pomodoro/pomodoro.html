@@ -50,5 +50,17 @@
         </div>
     </div>
     <script src="pomodoro.js"></script>
+    <script type="module">
+      import { setupAuth } from "../Home/auth.js";
+      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+    </script>
+    <script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+</script>
+<script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+</script>
 </body>
 </html>

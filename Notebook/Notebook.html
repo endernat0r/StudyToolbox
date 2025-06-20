@@ -26,6 +26,7 @@
         <div id="list-header">
             <div id="addNoteDiv" onclick="popup()">
                 <i class="fa-solid fa-plus"></i>
+                <span class="addNoteText">Click to add Note</span>
             </div>
             <div class="blankDiv"></div>
             <div class="blankDiv"></div>
@@ -36,5 +37,18 @@
         </div>
     </div>
     <script src="Notebook.js"></script>
+    <script type="module">
+      import { setupAuth } from "../Home/auth.js";
+      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+    </script>
+<script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+</script>
+<script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+</script>
+
 </body>
 </html>

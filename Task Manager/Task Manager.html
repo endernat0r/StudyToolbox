@@ -37,8 +37,19 @@
         <div class="task-list" id="task-list">
         </div>
         <script src="Task Manager.js"></script>
+        <script type="module">
+      import { setupAuth } from "../Home/auth.js";
+      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+    </script>
+    <script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+</script>
+<script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+</script>
 </body>
-<link rel="script" href="script.js">
 </html> 
 <script>
     document.getElementById('add-task').addEventListener('click', function() {

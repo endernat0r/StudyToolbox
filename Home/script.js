@@ -85,19 +85,15 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Modal Close functionality
 const modalClose = document.querySelector('.modal .close');
 modalClose.addEventListener('click', () => {
   document.getElementById('profileModal').style.display = "none";
 });
 window.addEventListener('click', (event) => {
-  const profileModal = document.getElementById('profileModal');
-  if (event.target == profileModal) {
-    profileModal.style.display = "none";
+  if (event.target == document.getElementById('profileModal')) {
+    document.getElementById('profileModal').style.display = "none";
   }
 });
-
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();

@@ -81,9 +81,8 @@ header{
 }
 
 .auth-container {
-  margin-left: auto;
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  margin-left: auto; /* it stays to the right */
 }

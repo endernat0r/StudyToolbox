@@ -42,6 +42,11 @@ header {
   flex-direction: row; 
   align-items: center;
   gap: 10px; 
+  justify-content: flex-end; 
+}
+
+.auth-container a.signup {
+  margin-left: 0 !important;
 }
 
 body{
@@ -95,6 +100,14 @@ body{
 #addNoteDiv i{
   font-size:70px;
   color:gainsboro;
+}
+
+.addNoteText {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
 }
 
 ul{
