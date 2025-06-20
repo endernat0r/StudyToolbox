@@ -47,9 +47,13 @@ addTaskButton.addEventListener("click", () => {
     <p>${task}</p>
     <p>Priority: ${priority}</p>
     <p>Deadline: ${deadline}</p>
-    <button class="mark-done"></button>
+    <button class="delete-task">Delete</button>
   `;
 
+    taskItem.querySelector(".delete-task").addEventListener("click", () => {
+        taskList.removeChild(taskItem);
+    });
+    
     taskList.appendChild(taskItem);
 
     taskInput.value = "";
