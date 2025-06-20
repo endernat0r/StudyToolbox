@@ -13,17 +13,17 @@
 }
 
 .darkmode {
-  --body-background: #DFD0B8;
-  --text-color: #393E46;
-  --header-background: #393E46;
-  --header-color: #DFD0B8;
-  --topnav-background: #393E46;
-  --topnav-color: #DFD0B8;
+  --body-background: #121212;
+  --text-color: #FFFFFF;
+  --header-background: #121212;
+  --header-color: #BB86FC;
+  --topnav-background: #000000;
+  --topnav-color: #03DAC6;
   --topnav-hover-background: #222831;
-  --topnav-hover-color: #DFD0B8;
-  --border-color: #948979;
-  --topnav-active-background: #948979;
-  --topnav-signup-background: #948979;
+  --topnav-hover-color: #3788d1;
+  --border-color: #BB86FC;
+  --topnav-active-background: #121212;
+  --topnav-signup-background: #121212;
 }
 
 body {
