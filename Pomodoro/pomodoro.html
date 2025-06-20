@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
-    <link rel="stylesheet" href="pomodoro.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="pomodoro.css">
 </head>
 <body class="darkmode">
-    <header>
-        <h1>StudyToolBox</h1>
-    </header>
-    <div class="topnav">
-        <a href="../Home/main.html">Home</a>
-        <a class="active" href="../Pomodoro/pomodoro.html">Pomodro</a>
-        <a href="../Task Manager/Task Manager.html">Task Manager</a>
-        <a href="../Notebook/Notebook.html">Notes</a>
-      <div class="auth-container">
-         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
-      </div>
+  <header>
+    <h1>StudyToolBox</h1>
+  </header>
+
+  <div class="topnav">
+    <a href="../Home/main.html">Home</a>
+    <a class="active" href="../Pomodoro/pomodoro.html">Pomodoro</a>
+    <a href="../Task Manager/Task Manager.html">Task Manager</a>
+    <a href="../Notebook/Notebook.html">Notes</a>
+    <div class="spacer"></div>
+    <div class="auth-container">
+      <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
     </div>
-    <div class="pomodoro-container">
-        <h1>Pomodoro Timer</h1>
-        <div class="timer-display">
-            <span id="minutes">25</span>:<span id="seconds">00</span>
-        </div>
-        <div class="preset-control">
-            <label for="preset">Preset: </label>
-            <select id="preset">
-                <option value="25-5" selected>25 / 5</option>
-                <option value="50-10">50 / 10</option>
-                <option value="45-15">45 / 15</option>
-                <option value="30-10">30 / 10</option>
-                <option value="20-5">20 / 5</option>
-                <option value="15-3">15 / 3</option>
-                <option value="20-10">20 / 10</option>
-                <option value="60-15">60 / 15</option>
-                <option value="40-10">40 / 10</option>
-                <option value="35-5">35 / 5</option>
-                <option value="50-5">50 / 5</option>
-                <option value="30-15">30 / 15</option>
-                <option value="55-10">55 / 10</option>
-            </select>
-        </div>
-        <div class="controls">
-            <button id="start">Start</button>
-            <button id="pause">Pause</button>
-            <button id="reset">Reset</button>
-            <button id="switch">Break</button>
-        </div>
+    <button id="mode-toggle" title="Toggle Light/Dark">
+      <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+    </button>
+  </div>
+
+  <div class="pomodoro-container">
+    <h1>Pomodoro Timer</h1>
+
+    <div class="timer-display">
+      <span id="minutes">25</span>:<span id="seconds">00</span>
     </div>
-    <script src="pomodoro.js"></script>
+
+    <div class="preset-control">
+      <label for="preset">Preset:</label>
+      <select id="preset">
+        <option value="25-5" selected>25 / 5</option>
+        <option value="50-10">50 / 10</option>
+        <option value="45-15">45 / 15</option>
+        <option value="30-10">30 / 10</option>
+        <option value="20-5">20 / 5</option>
+        <option value="15-3">15 / 3</option>
+        <option value="20-10">20 / 10</option>
+        <option value="60-15">60 / 15</option>
+        <option value="40-10">40 / 10</option>
+        <option value="35-5">35 / 5</option>
+        <option value="50-5">50 / 5</option>
+        <option value="30-15">30 / 15</option>
+        <option value="55-10">55 / 10</option>
+      </select>
+    </div>
+
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="pause" disabled>Pause</button>
+      <button id="reset">Reset</button>
+      <button id="switch">Break</button>
+    </div>
+  </div>
+
+  <script src="pomodoro.js"></script>
 </body>
 </html>
