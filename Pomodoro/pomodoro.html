@@ -6,7 +6,7 @@
   <title>Pomodoro Timer</title>
   <link rel="stylesheet" href="pomodoro.css">
 </head>
-<body class="darkmode">
+<body>
   <header>
     <h1>StudyToolBox</h1>
   </header>
@@ -21,7 +21,7 @@
       <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
     </div>
     <button id="mode-toggle" title="Toggle Light/Dark">
-      <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+      <img id="mode-icon" src="../Home/darkmode.png" alt="Toggle Mode" />
     </button>
   </div>
 
@@ -60,17 +60,10 @@
   </div>
 
   <script src="pomodoro.js"></script>
-      <script type="module">
-      import { setupAuth } from "../Home/auth.js";
-      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
-    </script>
-    <script type="module">
-  import { setupAuth } from "../Home/auth.js";
-  setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
-</script>
-<script type="module">
-  import { setupAuth } from "../Home/auth.js";
-  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
-</script>
+  <script type="module">
+    import { setupAuth } from "../Home/auth.js";
+    setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+  </script>
+  <script src="../Home/theme.js" defer></script>
 </body>
 </html>

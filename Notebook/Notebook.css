@@ -10,6 +10,15 @@
   --border-color: gray;
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
+  --note-background: #fff385;
+  --note-text-color: #000;
+  --note-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  --popup-background: #fff;
+  --popup-text-color: #333;
+  --popup-border-color: #ccc;
+  --textarea-background: #fff;
+  --textarea-border-color: #8c53ff;
+  --textarea-text-color: #000;
 }
 
 .darkmode {
@@ -24,6 +33,15 @@
   --border-color: #BB86FC;
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
+  --note-background: #2c2c2c;
+  --note-text-color: #e0e0e0;
+  --note-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1);
+  --popup-background: #2a2a2a;
+  --popup-text-color: #e0e0e0;
+  --popup-border-color: #555;
+  --textarea-background: #333;
+  --textarea-border-color: #BB86FC;
+  --textarea-text-color: #e0e0e0;
 }
 
 body {
@@ -41,7 +59,6 @@ header {
   font-size: 2vw;
 }
 
-/* top navigation */
 .topnav {
   background-color: var(--topnav-background);
   overflow: hidden;
@@ -155,7 +172,8 @@ ul {
 }
 
 li {
-  background: #fff385;
+  background: var(--note-background);
+  color: var(--note-text-color);
   height: 200px;
   width: 200px;
   margin: 10px;
@@ -164,7 +182,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 9px 9px 18px #b3b3b3, -9px -9px 18px #fff;
+  box-shadow: var(--note-box-shadow);
 }
 
 li span {
@@ -243,8 +261,9 @@ li span {
   left: 50%;
   transform: translate(-50%,-50%);
   width: 400px;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: var(--popup-background);
+  color: var(--popup-text-color);
+  border: 1px solid var(--popup-border-color);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   padding: 20px;
@@ -257,7 +276,9 @@ textarea {
   width: 100%;
   height: 200px;
   padding: 10px;
-  border: 2px solid #8c53ff;
+  border: 2px solid var(--textarea-border-color);
+  background-color: var(--textarea-background);
+  color: var(--textarea-text-color);
   border-radius: 4px;
   resize: none;
 }
@@ -295,7 +316,7 @@ textarea {
 .input-group label {
   font-size: 14px;
   margin-bottom: 4px;
-  color: #333;
+  color: var(--popup-text-color);
 }
 
 .input-group input {
@@ -305,13 +326,12 @@ textarea {
   font-size: 16px;
 }
 
-/* Update the shadow for created notes */
 #notes-list li {
-  background: #fff385;
+  background: var(--note-background);
   width: 200px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  box-shadow: var(--note-box-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
