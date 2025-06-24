@@ -21,7 +21,7 @@
       <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up &amp; Sign-In</a>
     </div>
     <button id="mode-toggle" title="Toggle Light/Dark">
-      <img id="mode-icon" src="darkmode.png" alt="Toggle Mode">
+      <img id="mode-icon" src="../Home/darkmode.png" alt="Toggle Mode">
     </button>
   </div>
   
@@ -38,34 +38,16 @@
       <button id="add-task">Add Task</button>
     </div>
     <div class="task-list" id="task-list">
-      <!-- Tasks will be added here -->
     </div>
   </main>
   
   <script src="Task Manager.js"></script>
   <script type="module" src="Profile.js"></script>
-  <script>
-    // Dark mode toggle script
-    const modeToggle = document.getElementById('mode-toggle');
-    const modeIcon = document.getElementById('mode-icon');
-    modeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('darkmode');
-      const isDark = document.body.classList.contains('darkmode');
-      modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
-    });
+  <script type="module">
+    import { setupAuth } from "../Home/auth.js";
+    setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
   </script>
-        <script type="module">
-      import { setupAuth } from "../Home/auth.js";
-      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
-    </script>
-    <script type="module">
-  import { setupAuth } from "../Home/auth.js";
-  setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
-</script>
-<script type="module">
-  import { setupAuth } from "../Home/auth.js";
-  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
-</script>
+  <script src="../Home/theme.js" defer></script>
 
 
 <div id="profileModal" class="modal">

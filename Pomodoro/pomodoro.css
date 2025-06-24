@@ -1,10 +1,12 @@
 :root {
+  --body-background: #f4f4f4;
+  --text-color: #000;
   --header-background: #1abc9c;
-  --header-color: white;
+  --header-color: #fff;
   --topnav-background: #333;
-  --topnav-color: white;
+  --topnav-color: #fff;
   --topnav-hover-background: #ddd;
-  --topnav-hover-color: black;
+  --topnav-hover-color: #000;
   --border-color: gray;
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
@@ -16,21 +18,21 @@
 }
 
 .darkmode {
-  --body-background: #DFD0B8;
-  --text-color: #393E46;
-  --header-background: #393E46;
-  --header-color: #DFD0B8;
-  --topnav-background: #393E46;
-  --topnav-color: #DFD0B8;
+  --body-background: #121212;
+  --text-color: #FFFFFF;
+  --header-background: #121212;
+  --header-color: #BB86FC;
+  --topnav-background: #000000;
+  --topnav-color: #03DAC6;
   --topnav-hover-background: #222831;
-  --topnav-hover-color: #DFD0B8;
-  --border-color: #948979;
-  --topnav-active-background: #948979;
-  --topnav-signup-background: #948979;
-  --container-background: #DFD0B8;
-  --timer-color: #393E46;
-  --timer-border: #948979;
-  --pause-background: #948979;
+  --topnav-hover-color: #3788d1;
+  --border-color: #BB86FC;
+  --topnav-active-background: #121212;
+  --topnav-signup-background: #121212;
+  --container-background: #1e1e1e;
+  --timer-color: #BB86FC;
+  --timer-border: #BB86FC;
+  --pause-background: #03DAC6;
   --reset-background: #222831;
 }
 
@@ -149,12 +151,18 @@ header {
 }
 
 .preset-control select {
-  background-color: #948979;
-  color: var(--header-color);
+  background-color: var(--container-background);
+  color: var(--text-color);
   border: 1px solid var(--border-color);
-  padding: 1px 1px;
-  border-radius: 3px;
-  }
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  max-width: 6em;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+}
+
 .auth-container {
   display: flex;
 justify-content: flex-end; 

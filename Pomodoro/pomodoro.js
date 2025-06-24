@@ -5,8 +5,6 @@ const pauseButton = document.getElementById('pause');
 const resetButton = document.getElementById('reset');
 const switchButton = document.getElementById('switch');
 const presetSelect = document.getElementById('preset');
-const modeToggle = document.getElementById('mode-toggle');
-const modeIcon = document.getElementById('mode-icon');
 
 let work, breakTime;
 [work, breakTime] = presetSelect.value.split('-').map(Number);
@@ -89,14 +87,6 @@ function toggleSession() {
   if (isWorkSession) switchToBreak(); else switchToWork();
 }
 
-// Mode toggle
-modeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('darkmode');
-  const isDark = document.body.classList.contains('darkmode');
-  modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
-});
-
-// Preset change
 presetSelect.addEventListener('change', () => {
   pauseTimer();
   [work, breakTime] = presetSelect.value.split('-').map(Number);
@@ -106,13 +96,11 @@ presetSelect.addEventListener('change', () => {
   updateDisplay();
 });
 
-// Control bindings
 startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
 resetButton.addEventListener('click', resetTimer);
 switchButton.addEventListener('click', toggleSession);
 
-// Initialize
 window.onload = () => {
   updateDisplay();
 };
