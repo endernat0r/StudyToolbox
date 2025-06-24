@@ -16,6 +16,7 @@
     <a class="active" href="../Pomodoro/pomodoro.html">Pomodoro</a>
     <a href="../Task Manager/Task Manager.html">Task Manager</a>
     <a href="../Notebook/Notebook.html">Notes</a>
+    <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
     <div class="spacer"></div>
     <div class="auth-container">
       <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
@@ -60,6 +61,7 @@
   </div>
 
   <script src="pomodoro.js"></script>
+  <script type="module" src="Profile.js"></script>
       <script type="module">
       import { setupAuth } from "../Home/auth.js";
       setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
@@ -72,5 +74,16 @@
   import { setupAuth } from "../Home/auth.js";
   setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
 </script>
+
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Profile</h2>
+      <div>Nickname: <span id="profileNickname"></span></div>
+      <div>First Name: <span id="profileFName"></span></div>
+      <div>Last Name: <span id="profileLName"></span></div>
+      <div>Email: <span id="profileEmail"></span></div>
+    </div>
+  </div>
 </body>
 </html>

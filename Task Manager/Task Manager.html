@@ -15,6 +15,7 @@
     <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
     <a class="active" href="../Task Manager/Task Manager.html">Task Manager</a>
     <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+    <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
     <div class="spacer"></div>
     <div class="auth-container">
       <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up &amp; Sign-In</a>
@@ -42,6 +43,7 @@
   </main>
   
   <script src="Task Manager.js"></script>
+  <script type="module" src="Profile.js"></script>
   <script>
     // Dark mode toggle script
     const modeToggle = document.getElementById('mode-toggle');
@@ -64,6 +66,18 @@
   import { setupAuth } from "../Home/auth.js";
   setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
 </script>
+
+
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Profile</h2>
+      <div>Nickname: <span id="profileNickname"></span></div>
+      <div>First Name: <span id="profileFName"></span></div>
+      <div>Last Name: <span id="profileLName"></span></div>
+      <div>Email: <span id="profileEmail"></span></div>
+    </div>
+  </div>
 </body>
 </html>
 <script>
@@ -95,4 +109,4 @@
         taskInput.value = '';
         priorityInput.value = 'top';
         deadlineInput.value = '';
-    });
+    }); 

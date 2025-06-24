@@ -10,6 +10,7 @@
   --border-color: gray;
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
+  --notes-body-background: #ffbb1d;
 }
 
 .darkmode {
@@ -24,6 +25,7 @@
   --border-color: #BB86FC;
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
+  --notes-body-background: #ffbb1d;
 }
 
 body {
@@ -155,7 +157,7 @@ ul {
 }
 
 li {
-  background: #fff385;
+  background: var(--notes-body-background);
   height: 200px;
   width: 200px;
   margin: 10px;
@@ -315,4 +317,75 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: var(--modal-content-background);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.auth-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; 
+}
+
+#mode-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#mode-icon {
+  background: transparent;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+#mode-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#mode-icon {
+  background: transparent;
+  display: block;
+  width: 24px;
+  height: 24px;
 }
