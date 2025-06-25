@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>StudyToolBox</title>
+  <link rel="stylesheet" href="Chronometer.css">
+  <title>Chronometer</title>
 </head>
 <body>
   <header>
     <h1>StudyToolBox</h1>
   </header>
   <div class="topnav">
-      <a class="active" href="../Home/main.html">Home</a>
+      <a class="passive" href="../Home/main.html">Home</a>
       <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
       <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
       <a class="passive" href="../Notebook/Notebook.html">Notes</a>
-      <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+      <a class="active" href="../Chronometer/Chronometer.html">Chronometer</a>
       <div class="spacer"></div>
       <div class="auth-container">
          <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
@@ -24,7 +24,6 @@
         <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
       </button>
   </div>
-  <h2>Welcome to the Homepage</h2>
   
   <div id="profileModal" class="modal">
     <div class="modal-content">
@@ -37,6 +36,24 @@
     </div>
   </div>
 </body>
-<script type="module" src="script.js"></script>
-<script src="theme.js" defer></script>
+<script type="module" src="Chronometer.js"></script>
+<script>
+const modeToggle = document.getElementById('mode-toggle');
+const modeIcon = document.getElementById('mode-icon');
+
+modeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('darkmode');
+  const isDark = document.body.classList.contains('darkmode');
+  modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
+});
+</script>
+    <script type="module">
+      import { setupAuth } from "../Home/auth.js";
+      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
+    </script>
+<script type="module">
+  import { setupAuth } from "../Home/auth.js";
+  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+</script>
+
 </html>
