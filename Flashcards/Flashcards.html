@@ -14,6 +14,23 @@
     <link rel="stylesheet" href="Flashcards.css" />
   </head>
   <body>
+      <header>
+    <h1>StudyToolBox</h1>
+  </header>
+  <div class="topnav">
+      <a class="active" href="../Home/main.html">Home</a>
+      <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
+      <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
+      <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+      <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+      <div class="spacer"></div>
+      <div class="auth-container">
+         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
+      </div>
+      <button id="mode-toggle" title="Toggle Light/Dark">
+        <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+      </button>
+  </div>
     <div class="container">
       <div class="add-flashcard-con">
         <button id="add-flashcard">Add Flashcard</button>
@@ -51,5 +68,10 @@
     </div>
 
     <script src="Flashcards.js"></script>
+    <script type="module">
+      import { setupAuth } from "../Home/auth.js";
+      setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+    </script>
+    <script src="../Home/theme.js" defer></script>
   </body>
 </html>

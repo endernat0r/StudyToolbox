@@ -131,17 +131,3 @@ header {
   width: 24px;
   height: 24px;
 }
-
-#mode-toggle {
-  background: transparent;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-}
-
-#mode-icon {
-  background: transparent;
-  display: block;
-  width: 24px;
-  height: 24px;
-}
