@@ -145,3 +145,33 @@ header {
   width: 24px;
   height: 24px;
 }
+
+.chrono-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.chrono-timer {
+  font-size: 4rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 30px;
+  color: var(--text-color, #222);
+}
+
+.chrono-buttons button {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  background: var(--topnav-signup-background, #00b7ff);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chrono-buttons button:hover {
+  background: var(--topnav-active-background, #4CAF50);
+}

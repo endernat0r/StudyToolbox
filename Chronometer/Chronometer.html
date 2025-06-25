@@ -24,6 +24,16 @@
         <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
       </button>
   </div>
+    <div class="chrono-container">
+    <div class="chrono-timer">
+      <span id="chrono-minutes">00</span>:<span id="chrono-seconds">00</span>.<span id="chrono-ms">00</span>
+    </div>
+    <div class="chrono-buttons">
+      <button id="chrono-start">Start</button>
+      <button id="chrono-stop">Stop</button>
+      <button id="chrono-reset">Reset</button>
+    </div>
+  </div>
   
   <div id="profileModal" class="modal">
     <div class="modal-content">
@@ -47,13 +57,13 @@ modeToggle.addEventListener('click', () => {
   modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
 });
 </script>
-    <script type="module">
-      import { setupAuth } from "../Home/auth.js";
-      setupAuth('.auth-container', true, "main.html", "../Login and Register/index.html");
-    </script>
-<script type="module">
-  import { setupAuth } from "../Home/auth.js";
-  setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
-</script>
+
+ <script src="Chronometer.js"></script>
+ <script src="../darkmode.js"></script>
+  <script type="module">
+    import { setupAuth } from "../Home/auth.js";
+    setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+  </script>
+</body>
 
 </html>
