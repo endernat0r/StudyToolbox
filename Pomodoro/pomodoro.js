@@ -5,6 +5,11 @@ const pauseButton = document.getElementById('pause');
 const resetButton = document.getElementById('reset');
 const switchButton = document.getElementById('switch');
 const presetSelect = document.getElementById('preset');
+const customWorkInput = document.getElementById('custom-work');
+const customBreakInput = document.getElementById('custom-break');
+const setCustomButton = document.getElementById('set-custom');
+const toggleCustomButton = document.getElementById('toggle-custom');
+const customControls = document.querySelector('.custom-controls');
 
 let work, breakTime;
 [work, breakTime] = presetSelect.value.split('-').map(Number);
@@ -94,6 +99,23 @@ presetSelect.addEventListener('change', () => {
   initialBreakTime = breakTime * 60;
   currentTime = isWorkSession ? initialWorkTime : initialBreakTime;
   updateDisplay();
+});
+
+toggleCustomButton.addEventListener('click', () => {
+  if (customControls.style.display === "none" || customControls.style.display === "") {
+    customControls.style.display = "block";
+    toggleCustomButton.textContent = "Done";
+  } else {
+
+    const customWork = Number(document.getElementById('custom-work').value) || work;
+    const customBreak = Number(document.getElementById('custom-break').value) || breakTime;
+    initialWorkTime = customWork * 60;
+    initialBreakTime = customBreak * 60;
+    currentTime = isWorkSession ? initialWorkTime : initialBreakTime;
+    updateDisplay();
+    customControls.style.display = "none";
+    toggleCustomButton.textContent = "Set Custom";
+  }
 });
 
 startButton.addEventListener('click', startTimer);
