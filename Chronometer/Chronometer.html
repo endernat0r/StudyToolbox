@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Chronometer.css">
+  <link rel="stylesheet" href="../Home/style.css">
   <title>Chronometer</title>
 </head>
 <body>
@@ -12,19 +13,20 @@
   </header>
   <div class="topnav">
       <a class="passive" href="../Home/main.html">Home</a>
-      <a class="passive" href="../Pomodoro/pomodoro.html">Pomodro</a>
+      <a class="passive" href="../Pomodoro/pomodoro.html">Pomodoro</a>
       <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
       <a class="passive" href="../Notebook/Notebook.html">Notes</a>
       <a class="active" href="../Chronometer/Chronometer.html">Chronometer</a>
+      <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
       <div class="spacer"></div>
       <div class="auth-container">
-         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
+         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up &amp; Sign-In</a>
       </div>
       <button id="mode-toggle" title="Toggle Light/Dark">
-        <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+        <img id="mode-icon" src="darkmode.png" alt="Toggle Mode">
       </button>
   </div>
-    <div class="chrono-container">
+  <div class="chrono-container">
     <div class="chrono-timer">
       <span id="chrono-minutes">00</span>:<span id="chrono-seconds">00</span>.<span id="chrono-ms">00</span>
     </div>
@@ -45,25 +47,27 @@
       <div>Email: <span id="profileEmail"></span></div>
     </div>
   </div>
-</body>
-<script type="module" src="Chronometer.js"></script>
-<script>
-const modeToggle = document.getElementById('mode-toggle');
-const modeIcon = document.getElementById('mode-icon');
-
-modeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('darkmode');
-  const isDark = document.body.classList.contains('darkmode');
-  modeIcon.src = isDark ? 'darkmode.png' : 'lightmode.png';
-});
-</script>
-
- <script src="Chronometer.js"></script>
- <script src="../darkmode.js"></script>
+  
+  <script type="module" src="Chronometer.js"></script>
+  <script src="../Home/theme.js" defer></script>
   <script type="module">
     import { setupAuth } from "../Home/auth.js";
     setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
   </script>
-</body>
 
+  <script>
+    const modalClose = document.querySelector('.modal .close');
+    if (modalClose) {
+      modalClose.addEventListener('click', () => {
+        document.getElementById('profileModal').style.display = "none";
+      });
+    }
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById('profileModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
 </html>

@@ -12,11 +12,12 @@
   </header>
 
   <div class="topnav">
-    <a href="../Home/main.html">Home</a>
-    <a class="active" href="../Pomodoro/pomodoro.html">Pomodoro</a>
-    <a href="../Task Manager/Task Manager.html">Task Manager</a>
-    <a href="../Notebook/Notebook.html">Notes</a>
+    <a class="passive" href="../Home/main.html">Home</a>
+    <a class="active"  href="../Pomodoro/pomodoro.html">Pomodoro</a>
+    <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
+    <a class="passive" href="../Notebook/Notebook.html">Notes</a>
     <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+    <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
     <div class="spacer"></div>
     <div class="auth-container">
       <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
@@ -50,6 +51,15 @@
         <option value="30-15">30 / 15</option>
         <option value="55-10">55 / 10</option>
       </select>
+    
+      <button id="toggle-custom">Set Custom</button>
+    </div>
+
+    <div class="custom-controls" style="display: none;">
+      <label for="custom-work">Study Time (minutes):</label>
+      <input type="number" id="custom-work" min="1" placeholder="Work (min)">
+      <label for="custom-break">Break Time (minutes):</label>
+      <input type="number" id="custom-break" min="1" placeholder="Break (min)">
     </div>
 
     <div class="controls">
