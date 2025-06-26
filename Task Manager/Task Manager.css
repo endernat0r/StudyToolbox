@@ -272,5 +272,45 @@ main {
   display: block;
   width: 24px;
   height: 24px;
-  
+}
+
+.tabs {
+    margin-bottom: 20px;
+}
+
+#tab-headers {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+#tab-headers .tab-header {
+    padding: 8px 12px;
+    background-color: var(--topnav-background);
+    color: var(--topnav-color);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+#tab-headers .tab-header.active {
+    background-color: var(--topnav-active-background);
+}
+
+#tab-headers #add-tab-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+#tab-headers input#new-tab-name {
+    padding: 6px;
+    font-size: 14px;
+}
+
+#tab-headers button#create-tab {
+    padding: 6px 10px;
+    font-size: 14px;
 }
