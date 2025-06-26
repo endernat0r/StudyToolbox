@@ -144,6 +144,18 @@ document.getElementById('chrono-reset').onclick = function() {
   clearInterval(interval);
   elapsed = 0;
   updateDisplay(0);
+  lapsList.innerHTML = ''; 
+};
+
+const lapButton = document.getElementById('chrono-lap');
+const lapsList  = document.getElementById('laps-list');
+
+lapButton.onclick = () => {
+  if (!running && elapsed === 0) return; 
+  const li = document.createElement('li');
+  li.textContent = `${minDisplay.textContent}:${secDisplay.textContent}.${msDisplay.textContent}`;
+  li.style.padding = '4px 0';
+  lapsList.appendChild(li);
 };
 
 // Initialize display

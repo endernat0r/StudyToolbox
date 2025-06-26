@@ -11,6 +11,7 @@
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
   --modal-content-background: #f1f1f1;
+  --container-background: #fff;
 }
 
 .darkmode {
@@ -26,6 +27,7 @@
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
   --modal-content-background: #121212;
+  --container-background: #1e1e1e;
 }
 
 body {
@@ -174,4 +176,23 @@ header {
 
 .chrono-buttons button:hover {
   background: var(--topnav-active-background, #4CAF50);
+}
+
+#laps-list {
+  max-width: 360px;
+  margin: 1.5rem auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+#laps-list li {
+  background: var(--container-background);
+  color: var(--text-color);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }

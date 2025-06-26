@@ -10,6 +10,7 @@ const customBreakInput = document.getElementById('custom-break');
 const setCustomButton = document.getElementById('set-custom');
 const toggleCustomButton = document.getElementById('toggle-custom');
 const customControls = document.querySelector('.custom-controls');
+const cycleCountDisplay = document.getElementById('cycle-count');
 
 let work, breakTime;
 [work, breakTime] = presetSelect.value.split('-').map(Number);
@@ -20,6 +21,7 @@ let isWorkSession = true;
 let currentTime = initialWorkTime;
 let timerInterval = null;
 let isPaused = true;
+let cycleCount = 0;
 
 function updateDisplay() {
   const minutes = Math.floor(currentTime / 60);
@@ -40,11 +42,9 @@ function startTimer() {
       } else {
         clearInterval(timerInterval);
         if (isWorkSession) {
-          alert("Work session finished! Time for a break.");
-          switchToBreak();
+          onSessionEnd("Work session finished! Time for a break.", switchToBreak);
         } else {
-          alert("Break finished! Back to work.");
-          switchToWork();
+          onSessionEnd("Break finished! Back to work.", switchToWork);
         }
       }
     }, 1000);
@@ -90,6 +90,26 @@ function switchToWork() {
 function toggleSession() {
   pauseTimer();
   if (isWorkSession) switchToBreak(); else switchToWork();
+}
+
+function onSessionEnd(message, nextFn) {
+  beep();
+  alert(message);
+  nextFn();
+  if (!isWorkSession) { 
+    cycleCount++;
+    cycleCountDisplay.textContent = `Cycles Completed: ${cycleCount}`;
+  }
+}
+
+function beep(duration = 200, freq = 600) {
+  const ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  osc.connect(ctx.destination);
+  osc.start();
+  setTimeout(()=>osc.stop(), duration);
 }
 
 presetSelect.addEventListener('change', () => {
