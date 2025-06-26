@@ -16,6 +16,7 @@
     <a class="active" href="../Task Manager/Task Manager.html">Task Manager</a>
     <a class="passive" href="../Notebook/Notebook.html">Notes</a>
     <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+    <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
     <div class="spacer"></div>
     <div class="auth-container">
       <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up &amp; Sign-In</a>
@@ -37,7 +38,16 @@
       <button id="no-deadline">No Deadline</button>
       <button id="add-task">Add Task</button>
     </div>
-    <div class="task-list" id="task-list">
+    
+    <div class="tabs">
+      <div id="tab-headers">
+        <button class="tab-header active" data-tab="default">Default</button>
+        <input type="text" id="new-tab-name" placeholder="New Tab Name">
+        <button id="create-tab" title="Add New Tab">Add</button>
+      </div>
+      <div id="tab-contents">
+        <div class="task-list" data-tab="default"></div>
+      </div>
     </div>
   </main>
   
@@ -48,7 +58,6 @@
     setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
   </script>
   <script src="../Home/theme.js" defer></script>
-
 
 <div id="profileModal" class="modal">
     <div class="modal-content">
@@ -91,4 +100,4 @@
         taskInput.value = '';
         priorityInput.value = 'top';
         deadlineInput.value = '';
-    }); 
+    });
