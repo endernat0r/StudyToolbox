@@ -19,6 +19,9 @@
   --textarea-background: #fff;
   --textarea-border-color: #8c53ff;
   --textarea-text-color: #000;
+  --modal-content-background: #f1f1f1;
+  --add-note-background: #f9f9f9;
+  --add-note-hover-background: #f1f1f1;
 }
 
 .darkmode {
@@ -33,7 +36,7 @@
   --border-color: #BB86FC;
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
-  --note-background: #2c2c2c;
+  --note-background: #--add-note-background;
   --note-text-color: #e0e0e0;
   --note-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1);
   --popup-background: #2a2a2a;
@@ -42,6 +45,9 @@
   --textarea-background: #333;
   --textarea-border-color: #BB86FC;
   --textarea-text-color: #e0e0e0;
+  --modal-content-background: #121212;
+  --add-note-background: #2a2a2a;
+  --add-note-hover-background: #555;
 }
 
 body {
@@ -148,14 +154,14 @@ header {
 }
 
 #addNoteDiv {
-  background: #f9f9f9;
+  background: var(--add-note-background);
   border: 1px solid #ddd;
   cursor: pointer;
   transition: background-color .25s;
 }
 
 #addNoteDiv:hover {
-  background: #f1f1f1;
+  background: var(--add-note-hover-background);
 }
 
 #addNoteDiv i{

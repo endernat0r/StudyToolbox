@@ -10,6 +10,7 @@
   --border-color: gray;
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
+  --modal-content-background: #f1f1f1;
 }
 
 .darkmode {
@@ -24,6 +25,7 @@
   --border-color: #BB86FC;
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
+  --modal-content-background: #121212;
 }
 
 body {
@@ -238,6 +240,7 @@ main {
   color: black;
   text-decoration: none;
 }
+
 
 .auth-container {
   display: inline-flex;
