@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="Calculator.css">
 </head>
 <body>
+    <header>
+    <h1>StudyToolBox</h1>
+  </header>
+  <div class="topnav">
+      <a class="passive" href="../Home/main.html">Home</a>
+      <a class="passive" href="../Pomodoro/pomodoro.html">Pomodoro</a>
+      <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
+      <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+      <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+      <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
+      <a class="active" href="../Calculator/Calculator.html">Calculator</a>
+      <div class="spacer"></div>
+      <div class="auth-container">
+         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
+      </div>
+      <button id="mode-toggle" title="Toggle Light/Dark">
+        <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+      </button>
+  </div>  
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Profile</h2>
+      <div>Nickname: <span id="profileNickname"></span></div>
+      <div>First Name: <span id="profileFName"></span></div>
+      <div>Last Name: <span id="profileLName"></span></div>
+      <div>Email: <span id="profileEmail"></span></div>
+    </div>
+  </div>
     <div class="container">
         <div class="calculator">
             <form>
@@ -45,5 +74,6 @@
             </form>
         </div>
     </div>
+    <script src="../Home/theme.js" defer></script>
 </body>
 </html>
