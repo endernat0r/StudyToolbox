@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>StudyToolBox – Ambient Noise</title>
+  <link rel="stylesheet" href="Ambient.css">
+</head>
+<body>
+  <header>
+    <h1>Ambient Noise Generator</h1>
+  </header>
+
+  <main class="controls">
+    <div class="sound-card" data-sound="rain">
+      <button class="play-btn">Rain</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="sound-card" data-sound="forest">
+      <button class="play-btn">Forest</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="sound-card" data-sound="waves">
+      <button class="play-btn">Birds</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="sound-card" data-sound="cafe">
+      <button class="play-btn">Café</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+  </main>
+
+  <script src="Ambient.js"></script>
+</body>
+</html>
