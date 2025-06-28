@@ -131,3 +131,17 @@ header {
   width: 24px;
   height: 24px;
 }
+
+
+button,
+input[type="button"],
+input[type="submit"],
+.auth-container a.signup {
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.auth-container a.signup:hover {
+  transform: scale(1.05);
+}

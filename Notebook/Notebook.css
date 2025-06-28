@@ -413,3 +413,25 @@ textarea {
   width: 24px;
   height: 24px;
 }
+
+#clearAllBtn {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  background: var(--topnav-signup-background);
+  color: var(--header-color);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+#clearAllBtn:hover {
+  background: var(--topnav-active-background);
+  transform: scale(1.05);
+}
+#clearAllBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  background: var(--container-background);
+  color: var(--text-color);
+}

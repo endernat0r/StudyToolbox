@@ -18,7 +18,7 @@ const db = getFirestore(app);
 function renderLoggedOutState() {
   window.location.href = "main.html";
 }
-function setupAuth(authContainerSelector, redirectIfNotLoggedIn = true, logoutRedirectUrl = "main.html", signInPageUrl = "../Login and Register/index.html") {
+function setupAuth(authContainerSelector, redirectIfNotLoggedIn = true, logoutRedirectUrl = "../Home/main.html", signInPageUrl = "../Login and Register/index.html") {
   const authContainer = document.querySelector(authContainerSelector);
   if (!authContainer) {
     console.error("Auth container not found:", authContainerSelector);

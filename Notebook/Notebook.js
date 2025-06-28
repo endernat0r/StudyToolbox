@@ -140,24 +140,32 @@ function createNote() {
     displayNotes();
 }
 
+function updateClearAllState() {
+  const clearAllBtn = document.getElementById('clearAllBtn');
+  if (!clearAllBtn) return;
+  const hasNotes = getNotes().length > 0;
+  clearAllBtn.disabled = !hasNotes;
+}
+
 function displayNotes() {
-    const ul = document.getElementById('notes-list');
-    ul.innerHTML = '';
+  const ul = document.getElementById('notes-list');
+  ul.innerHTML = '';
 
-    getNotes().forEach(({ id, title, text }) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-      <h2>${title || 'Untitled'}</h2>
-      <p>${text}</p>
-      <div class="btn-group">
-         <button class="edit-btn"><i class="fa-solid fa-pen"></i>Edit</button>
-         <button class="delete-btn"><i class="fa-solid fa-trash"></i>Delete</button>
-      </div>`;
-        li.querySelector('.edit-btn').onclick = () => editNote(id);
-        li.querySelector('.delete-btn').onclick = () => deleteNote(id);
+  getNotes().forEach(({ id, title, text }) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+    <h2>${title || 'Untitled'}</h2>
+    <p>${text}</p>
+    <div class="btn-group">
+       <button class="edit-btn"><i class="fa-solid fa-pen"></i>Edit</button>
+       <button class="delete-btn"><i class="fa-solid fa-trash"></i>Delete</button>
+    </div>`;
+      li.querySelector('.edit-btn').onclick = () => editNote(id);
+      li.querySelector('.delete-btn').onclick = () => deleteNote(id);
 
-        ul.appendChild(li);
-    });
+      ul.appendChild(li);
+  });
+  updateClearAllState();
 }
 
 function deleteNote(id) {
@@ -189,14 +197,17 @@ function editNote(id) {
     wrapper.querySelector('#closeBtn').onclick = () => wrapper.remove();
 }
 
-function updateNote() {ssw
+function updateNote() {
     const wrapper = document.getElementById('editing-container');
     const id = Number(wrapper.dataset.id);
     const title = document.getElementById('edit-title').value.trim();
     const text = document.getElementById('edit-text').value.trim();
     if (!text) return;
 
-    const notes = getNotes().map(n => n.id === id ? { ...n, title, text } : n);
+    const notes = getNotes().map(n => n.id === id
+      ? { ...n, title, text }
+      : n
+    );
     saveNotes(notes);
 
     wrapper.remove();
@@ -209,3 +220,17 @@ function getNotes() {
 function saveNotes(list) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
 }
+
+window.popup = popup;
+
+document.addEventListener('DOMContentLoaded', () => {
+  displayNotes();
+
+  const clearAllBtn = document.getElementById('clearAllBtn');
+  clearAllBtn?.addEventListener('click', () => {
+    if (confirm('Are you sure you want to delete ALL of the Notes?')) {
+      saveNotes([]);
+      displayNotes();
+    }
+  });
+});

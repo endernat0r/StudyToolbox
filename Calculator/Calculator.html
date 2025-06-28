@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Calculator.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="../Home/style.css" />
+  <link rel="stylesheet" href="Calculator.css" />
 </head>
 <body>
     <header>
@@ -18,6 +19,7 @@
       <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
       <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
       <a class="active" href="../Calculator/Calculator.html">Calculator</a>
+      <a class="passive" href="../Whiteboard/Whiteboard.html">Whiteboard</a>
       <div class="spacer"></div>
       <div class="auth-container">
          <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
@@ -25,18 +27,9 @@
       <button id="mode-toggle" title="Toggle Light/Dark">
         <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
       </button>
-  </div>  
-  <div id="profileModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>User Profile</h2>
-      <div>Nickname: <span id="profileNickname"></span></div>
-      <div>First Name: <span id="profileFName"></span></div>
-      <div>Last Name: <span id="profileLName"></span></div>
-      <div>Email: <span id="profileEmail"></span></div>
-    </div>
   </div>
-    <div class="container">
+
+  <div class="container">
         <div class="calculator">
             <form>
                 <div class="display">
@@ -80,6 +73,19 @@
             </form>
         </div>
     </div>
-    <script src="Calculator.js"></script>
+    
+    <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Profile</h2>
+      <div>Nickname: <span id="profileNickname"></span></div>
+      <div>First Name: <span id="profileFName"></span></div>
+      <div>Last Name: <span id="profileLName"></span></div>
+      <div>Email: <span id="profileEmail"></span></div>
+    </div>
+  </div>
+  
+  <script type="module" src="Calculator.js"></script>
+  <script src="../Home/theme.js" defer></script>
 </body>
 </html>

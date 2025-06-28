@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Whiteboard</title>
+  <link rel="stylesheet" href="../Home/style.css">
+  <link rel="stylesheet" href="Whiteboard.css">
+</head>
+<body>
+  <header><h1>StudyToolBox</h1></header>
+
+  <div class="topnav">
+    <a class="passive" href="../Home/main.html">Home</a>
+    <a class="passive" href="../Pomodoro/pomodoro.html">Pomodoro</a>
+    <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
+    <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+    <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+    <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
+    <a class="passive" href="../Calculator/Calculator.html">Calculator</a>
+    <a class="active" href="Whiteboard.html">Whiteboard</a>
+
+    <div class="spacer"></div>
+    <div class="auth-container"></div>
+    <button id="mode-toggle" title="Toggle Light/Dark">
+      <img id="mode-icon" src="../Home/darkmode.png" alt="Toggle">
+    </button>
+  </div>
+
+  <!-- toolbar -->
+  <div class="toolbar">
+    <input type="color" id="colorPicker" value="#000000">
+    <input type="range" id="brushSize" min="1" max="50" value="5">
+    <button id="clearBtn">Clear</button>
+    <button id="saveBtn">Save PNG</button>
+  </div>
+k
+  <div class="whiteboard-container">
+    <canvas id="whiteboard"></canvas>
+  </div>
+
+  <script type="module">
+    import { setupAuth } from "../Home/auth.js";
+    setupAuth('.auth-container', true,
+      "../Home/main.html",
+      "../Login and Register/index.html");
+  </script>
+  <script src="../Home/theme.js" defer></script>
+  <script type="module" src="Whiteboard.js" defer></script>
+</body>
+</html>

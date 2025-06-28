@@ -1,0 +1,69 @@
+*
+
+
+.whiteboard-container {
+    width: 90vw;
+    height: 70vh;
+    margin: 0 auto 2rem;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.tool {
+    padding: 10px 15px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.tool:hover {
+    background-color: #2980b9;
+}
+
+input[type="color"], input[type="range"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+
+input[type="color"]:hover, input[type="range"]:hover {
+    border: 1px solid #3498db;
+}
+
+.clear-btn {
+    background-color: #e74c3c;
+}
+
+.clear-btn:hover {
+    background-color: #c0392b;
+}
+
+#whiteboard {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-color);
+  touch-action: none;
+  display: block;
+}
