@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>StudyToolBox – Ambient Noise</title>
+  <link rel="stylesheet" href="Ambient.css">
+  <link rel="stylesheet" href="../Home/style.css">
+</head>
+<body>
+   <header>
+    <h1>StudyToolBox</h1>
+  </header>
+  <div class="topnav">
+      <a class="passive" href="../Home/main.html">Home</a>
+      <a class="passive" href="../Pomodoro/pomodoro.html">Pomodoro</a>
+      <a class="passive" href="../Task Manager/Task Manager.html">Task Manager</a>
+      <a class="passive" href="../Notebook/Notebook.html">Notes</a>
+      <a class="passive" href="../Chronometer/Chronometer.html">Chronometer</a>
+      <a class="passive" href="../Flashcards/Flashcards.html">Flashcards</a>
+      <a class="passive" href="../Calculator/Calculator.html">Calculator</a>
+      <a class="active" href="../Ambient/Ambient.html">Ambient Noise</a>
+      <div class="spacer"></div>
+      <div class="auth-container">
+         <a class="signup" id="authAction" href="../Login and Register/index.html">Sign-up & Sign-In</a>
+      </div>
+      <button id="mode-toggle" title="Toggle Light/Dark">
+        <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
+      </button>
+  </div>
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Profile</h2>
+      <div>Nickname: <span id="profileNickname"></span></div>
+      <div>First Name: <span id="profileFName"></span></div>
+      <div>Last Name: <span id="profileLName"></span></div>
+      <div>Email: <span id="profileEmail"></span></div>
+    </div>
+  </div>
+  <main class="controls">
+    <div class="sound-card" data-sound="rain">
+      <button class="play-btn">Rain</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="sound-card" data-sound="forest">
+      <button class="play-btn">Forest</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="sound-card" data-sound="waves">
+      <button class="play-btn">Birds</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="sound-card" data-sound="cafe">
+      <button class="play-btn">Café</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+  </main>
+
+  <script type="module" src="Ambient.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modeToggle = document.getElementById('mode-toggle');
+      const modeIcon = document.getElementById('mode-icon');
+      const body = document.body;
+
+      // Function to set the theme
+      const setTheme = (theme) => {
+        body.classList.toggle('darkmode', theme === 'dark');
+        if (modeIcon) {
+            modeIcon.src = theme === 'dark' ? 'lightmode.png' : 'darkmode.png';
+        }
+        localStorage.setItem('theme', theme);
+      };
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      setTheme(savedTheme);
+
+      // Toggle theme on button click
+      if (modeToggle) {
+        modeToggle.addEventListener('click', () => {
+          const currentTheme = body.classList.contains('darkmode') ? 'dark' : 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setTheme(newTheme);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
