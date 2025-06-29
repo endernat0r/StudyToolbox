@@ -110,3 +110,18 @@ const disableButtons = (value) => {
     element.disabled = value;
   });
 };
+
+// Shuffle cards in `.card-list-container`
+const shuffleBtn = document.getElementById('shuffle-btn');
+shuffleBtn?.addEventListener('click', () => {
+  const listContainer = document.querySelector('.card-list-container');
+  const cards = Array.from(listContainer.children);
+  // Fisher–Yates shuffle
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  // re-append in new order
+  listContainer.innerHTML = '';
+  cards.forEach(card => listContainer.appendChild(card));
+});

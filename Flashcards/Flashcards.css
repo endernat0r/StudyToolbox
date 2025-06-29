@@ -100,6 +100,7 @@ header {
   display: flex;
   justify-content: flex-end;
   padding: 1.2em 1em;
+  gap: 0.5em;    
 }
 
 button {
@@ -334,4 +335,39 @@ textarea:focus {
   align-items: center;
   gap: 10px;
   margin-left: auto; 
+}
+
+#shuffle-btn {
+  background-color: #ffa726;
+  color: #fff;
+  padding: 0.8em 1.2em;
+  border-radius: 0.4em;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+#shuffle-btn:hover {
+  transform: scale(1.05);
+  background-color: #fb8c00;
+}
+
+#speak-btn,
+#stop-btn {
+  background: var(--topnav-signup-background);
+  color: var(--header-color);
+  border: none;
+  padding: 0.6em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform .1s, background-color .2s;
+}
+#speak-btn:hover,
+#stop-btn:hover:not([disabled]) {
+  transform: scale(1.05);
+  background: var(--topnav-active-background);
+}
+#stop-btn[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
 }
