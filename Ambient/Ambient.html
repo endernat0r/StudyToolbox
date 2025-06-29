@@ -58,34 +58,6 @@
   </main>
 
   <script type="module" src="Ambient.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const modeToggle = document.getElementById('mode-toggle');
-      const modeIcon = document.getElementById('mode-icon');
-      const body = document.body;
-
-      // Function to set the theme
-      const setTheme = (theme) => {
-        body.classList.toggle('darkmode', theme === 'dark');
-        if (modeIcon) {
-            modeIcon.src = theme === 'dark' ? 'lightmode.png' : 'darkmode.png';
-        }
-        localStorage.setItem('theme', theme);
-      };
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      setTheme(savedTheme);
-
-      // Toggle theme on button click
-      if (modeToggle) {
-        modeToggle.addEventListener('click', () => {
-          const currentTheme = body.classList.contains('darkmode') ? 'dark' : 'light';
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          setTheme(newTheme);
-        });
-      }
-    });
-  </script>
+  <script src="../theme.js" defer></script>
 </body>
 </html>
