@@ -125,3 +125,30 @@ addTaskButton.addEventListener("click", () => {
         deadlineInput.value = "";
     }
 });
+
+function renderTask(task) {
+  const li = document.createElement('li');
+  li.classList.add('task-item');
+  li.innerHTML = `
+    <span class="task-name">${task.name}</span>
+    <span class="task-priority">Priority: ${task.priority}</span>
+    <span class="task-deadline">Deadline: ${task.dueDate || 'None'}</span>
+    <input type="radio" name="complete-${task.id}">
+  `;
+  return li;
+}
+
+function displayTasks() {
+  const list = document.getElementById('task-list');
+  list.innerHTML = '';
+  getTasks().forEach(task => {
+    const li = document.createElement('li');
+    li.className = 'task-item';
+    li.innerHTML = `
+      <span class="task-title">${task.name}</span>
+      <span class="task-priority">Priority: ${task.priority}</span>
+      <span class="task-deadline">Deadline: ${task.dueDate}</span>
+    `;
+    list.appendChild(li);
+  });
+}

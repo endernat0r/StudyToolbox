@@ -317,3 +317,21 @@ main {
     padding: 6px 10px;
     font-size: 14px;
 }
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+}
+
+.task-name {
+  flex: 1;              
+  font-weight: 600;
+}
+
+.task-priority,
+.task-deadline {
+  white-space: nowrap; 
+  font-size: 0.9rem;
+}
