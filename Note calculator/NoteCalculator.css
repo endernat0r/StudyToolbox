@@ -1,66 +1,69 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: var(--body-bg, #f4f4f4);
-  color: var(--text-color, #333);
+/* Sadece hesaplayıcıya özel düzen. Temadaki değişkenler kullanıldı. */
+
+.calc-wrapper{
+  padding:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  justify-content:center;
 }
-header {
-  background: #1abc9c;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
+
+.calc-section{
+  background:var(--modal-content-background);
+  border:1px solid var(--border-color);
+  border-radius:8px;
+  padding:20px;
+  width:min(100%,350px);
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
-.topnav {
-  display: flex;
-  align-items: center;
-  background: #333;
+
+.calc-section h2{
+  margin-top:0;
+  text-align:center;
+  font-size:1.4rem;
 }
-.topnav a {
-  color: #fff;
-  padding: 0.75rem;
-  text-decoration: none;
+
+.calc-section form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
-.topnav a.active {
-  background: #4CAF50;
+
+.calc-section label{
+  display:flex;
+  flex-direction:column;
+  font-size:0.95rem;
 }
-.spacer {
-  flex: 1;
+
+.calc-section input[type="number"]{
+  padding:6px 8px;
+  border:1px solid var(--border-color);
+  border-radius:4px;
+  background:var(--body-background);
+  color:var(--text-color);
 }
-#mode-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-right: 1rem;
+
+.calc-section button{
+  align-self:center;
+  margin-top:8px;
+  padding:8px 18px;
+  border:none;
+  border-radius:4px;
+  background:var(--topnav-active-background);
+  color:var(--header-color);
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .1s ease, background-color .2s ease;
 }
-.calculator {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.calc-section button:hover{
+  background:var(--topnav-hover-background);
+  color:var(--topnav-hover-color);
+  transform:scale(1.05);
 }
-.calculator label,
-.calculator input,
-.calculator button {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.75rem;
-}
-.calculator button {
-  padding: 0.5rem;
-}
-#result {
-  margin-top: 1rem;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-:root {
-  --body-bg: #f4f4f4;
-  --text-color: #333;
-}
-.darkmode {
-  --body-bg: #121212;
-  --text-color: #fff;
+
+.result{
+  margin-top:14px;
+  text-align:center;
+  font-weight:bold;
+  font-size:1.15rem;
 }

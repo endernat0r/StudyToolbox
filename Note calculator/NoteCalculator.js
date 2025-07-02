@@ -1,19 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const readInput = document.getElementById('raw-reading');
-  const mathInput = document.getElementById('raw-math');
-  const resultDiv = document.getElementById('result');
 
-  const readingScale = [200,210,210,210,210,210,210,220,220,230,230,240,240,250,260,270,300,310,320,330,330,340,350,350,360,370,380,380,390,400,410,410,420,430,440,450,460,470,470,480,490,500,510,520,530,550,560,570,580,590,600,610,620,630,640,660,670,680,690,700,710,720,730,740,760,780,800];
-  const mathScale   = [200,210,210,210,210,210,210,220,230,240,260,290,320,330,340,350,350,360,370,380,380,390,390,400,410,420,430,440,450,460,460,480,490,500,510,520,530,550,560,590,600,610,630,650,670,690,710,740,760,770,780,790,800,800];
+  const satForm   = document.getElementById('sat-form');
+  const satResult = document.getElementById('sat-result');
 
-  document.getElementById('calculate-btn').addEventListener('click', () => {
-    const rawRead = Math.min(Math.max(parseInt(readInput.value) || 0, 0), readingScale.length - 1);
-    const rawMath = Math.min(Math.max(parseInt(mathInput.value) || 0, 0), mathScale.length - 1);
+  const scaleScore = (raw, maxRaw, maxScore) => {
+    if (raw < 0) return 0;
+    if (raw >= maxRaw) return maxScore;
+    return Math.round((raw / maxRaw) * maxScore / 10) * 10;
+  };
 
-    const scaledRead = readingScale[rawRead];
-    const scaledMath = mathScale[rawMath];
-    const totalScore = scaledRead + scaledMath;
+  satForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    resultDiv.textContent = `Your SAT score: ${scaledRead} (RW) + ${scaledMath} (Math) = ${totalScore}`;
+    const readingRaw = Number(document.getElementById('sat-reading-raw').value);
+    const writingRaw = Number(document.getElementById('sat-writing-raw').value);
+    const mathRaw = Number(document.getElementById('sat-math-raw').value);
+
+    if ([readingRaw, writingRaw, mathRaw].some(v => Number.isNaN(v))) {
+      satResult.textContent = 'Please enter valid numbers.';
+      return;
+    }
+    if (readingRaw < 0 || readingRaw > 52 || writingRaw < 0 || writingRaw > 44 || mathRaw < 0 || mathRaw > 58) {
+      satResult.textContent = 'Please enter values within the specified ranges.';
+      return;
+    }
+
+    const readingTestScore = scaleScore(readingRaw, 52, 40);
+    const writingTestScore = scaleScore(writingRaw, 44, 40);
+    const mathTestScore = scaleScore(mathRaw, 58, 40);
+
+    const ebrwScore = (readingTestScore + writingTestScore) * 10;
+    const mathScore = mathTestScore * 20;
+
+    const finalEbrw = Math.max(200, ebrwScore);
+    const finalMath = Math.max(200, mathScore);
+
+    satResult.textContent = `Total SAT Score: ${finalEbrw + finalMath} (EBRW: ${finalEbrw}, Math: ${finalMath})`;
+  });
+
+  const actForm   = document.getElementById('act-form');
+  const actResult = document.getElementById('act-result');
+
+  actForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const fields = ['act-english', 'act-math', 'act-reading', 'act-science'];
+    const scores = fields.map(id => Number(document.getElementById(id).value));
+
+    if (scores.some(v => Number.isNaN(v))) {
+      actResult.textContent = 'Please enter a number for all sections.';
+      return;
+    }
+    if (scores.some(v => v < 1 || v > 36)) {
+      actResult.textContent = 'Section scores must be between 1 and 36.';
+      return;
+    }
+
+    const composite = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+    actResult.textContent = `ACT Composite Score: ${composite}`;
   });
 });
