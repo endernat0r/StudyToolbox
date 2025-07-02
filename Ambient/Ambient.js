@@ -108,7 +108,8 @@ const soundFiles = {
   rain: 'soft-rain-ambient-111154.mp3',
   forest: 'ambient-spring-forest-323801.mp3',
   birds: 'ambient-forest-bird-sounds-280152.mp3',
-  cafe: 'ambient-sound-inside-cafeteria-18255.mp3'
+  cafe: 'ambient-sound-inside-cafeteria-18255.mp3',
+  SoftForest: 'ambient-forest-with-cuckoos.mp3',
 };
 
 const sounds = {};

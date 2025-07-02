@@ -22,7 +22,7 @@
   border-radius: 4px;
   background: var(--container-background);
   color: var(--text-color);
-}
+} 
 
 .calculator input[type="button"] {
   width: 58px;
@@ -34,7 +34,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.1s ease, background-color 0.2s ease;
+  transition: transform 0.1s ease, background-color 0.2s ease; 
 }
 
 .calculator input[type="button"]:hover {

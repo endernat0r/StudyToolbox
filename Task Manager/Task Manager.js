@@ -152,3 +152,51 @@ function displayTasks() {
     list.appendChild(li);
   });
 }
+
+const deleteAllBtn = document.getElementById('delete-all-btn');
+deleteAllBtn.addEventListener('click', () => {
+  const list = document.querySelector(
+    `#tab-contents .task-list[data-tab="${activeTab}"]`
+  );
+  if (list) list.innerHTML = '';
+});
+
+const sortBtn = document.getElementById('sort-filter-btn');
+let sortState = 'deadline';  // toggle between 'deadline' and 'priority'
+
+sortBtn?.addEventListener('click', () => {
+  // flip state
+  sortState = sortState === 'deadline' ? 'priority' : 'deadline';
+  sortBtn.innerText = sortState === 'deadline'
+    ? 'Sort: Deadline'
+    : 'Sort: Priority';
+  sortTasks();
+});
+
+function sortTasks() {
+  const list = document.querySelector(
+    `#tab-contents .task-list[data-tab="${activeTab}"]`
+  );
+  const items = Array.from(list.children);
+  items.sort((a, b) => {
+    const pElsA = a.querySelectorAll('p');
+    const pElsB = b.querySelectorAll('p');
+    const prA = pElsA[1].innerText.split(': ')[1].toLowerCase();
+    const prB = pElsB[1].innerText.split(': ')[1].toLowerCase();
+    const dlA = pElsA[2].innerText.split(': ')[1];
+    const dlB = pElsB[2].innerText.split(': ')[1];
+
+    if (sortState === 'priority') {
+      const order = { top: 1, middle: 2, low: 3 };
+      return order[prA] - order[prB];
+    } else {
+      const timeA = dlA === 'None' ? Infinity : new Date(dlA).getTime();
+      const timeB = dlB === 'None' ? Infinity : new Date(dlB).getTime();
+      return timeA - timeB;
+    }
+  });
+
+  // re-append in sorted order
+  list.innerHTML = '';
+  items.forEach(item => list.appendChild(item));
+}

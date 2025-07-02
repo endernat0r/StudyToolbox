@@ -11,11 +11,12 @@
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
   --modal-content-background: #f1f1f1;
+  --task-Body-background: #f1f1f1;
 }
 
 .darkmode {
   --body-background: #121212;
-  --text-color: #FFFFFF;
+  --text-color: #ffffff99;
   --header-background: #121212;
   --header-color: #BB86FC;
   --topnav-background: #000000;
@@ -26,6 +27,7 @@
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
   --modal-content-background: #121212;
+  --task-Body-background: #222831;
 }
 
 body {
@@ -136,7 +138,7 @@ main {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  background: white;
+  background: var(--task-Body-background);
 }
 
 .task button {
