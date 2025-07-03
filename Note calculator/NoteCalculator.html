@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Home/style.css">
   <link rel="stylesheet" href="NoteCalculator.css">
-  <title>StudyToolBox – Note Calculator</title>
+  <title>StudyToolBox</title>
 </head>
 <body>
   <header>
@@ -30,6 +30,18 @@
       <button id="mode-toggle" title="Toggle Light/Dark">
         <img id="mode-icon" src="darkmode.png" alt="Toggle Mode" />
       </button>
+  </div>
+  
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>User Profile</h2>
+      <div>Nickname: <span id="profileNickname"></span></div>
+      <div>First Name: <span id="profileFName"></span></div>
+      <div>Last Name: <span id="profileLName"></span></div>
+      <div>Email: <span id="profileEmail"></span></div>
+    </div>
+  </div>
   </div>
 
   <main class="calc-wrapper">
@@ -90,6 +102,12 @@
   </main>
 
   <script type="module" src="NoteCalculator.js"></script>
+  <script type="module" src="../Home/Profile.js"></script>
   <script src="../Home/theme.js" defer></script>
+    <script type="module">
+    import { setupAuth } from "../Home/auth.js";
+    setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+  </script>
+
 </body>
 </html>

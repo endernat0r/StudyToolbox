@@ -29,7 +29,7 @@ function renderLoggedInState(userData) {
     localStorage.removeItem('loggedInUserId');
     signOut(auth)
       .then(() => {
-        window.location.href = "main.html"; 
+        window.location.href = "../Home/main.html"; 
       })
       .catch((error) => {
         console.error("Error signing out:", error);

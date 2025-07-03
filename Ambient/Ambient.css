@@ -11,6 +11,7 @@
   --topnav-active-background: #4CAF50;
   --topnav-signup-background: #00b7ff;
    --modal-content-background: #f1f1f1;
+   --sound-card-background: #f1f1f1;
 }
 
 .darkmode {
@@ -26,8 +27,8 @@
   --topnav-active-background: #121212;
   --topnav-signup-background: #121212;
   --modal-content-background: #121212;
+  --sound-card-background: #2a2a2a;
 }
-
 
 * {
   box-sizing: border-box;
@@ -45,7 +46,7 @@
 }
 
 .sound-card {
-  background: #fff;
+  background: var(--sound-card-background);
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   padding: 1.5rem;

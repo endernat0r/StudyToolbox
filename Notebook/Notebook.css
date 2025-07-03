@@ -435,3 +435,35 @@ textarea {
   background: var(--container-background);
   color: var(--text-color);
 }
+
+.copy-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.copy-btn:hover {
+  background-color: #0069d9;
+  transform: scale(1.05);
+}
+
+.btn-group button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;             
+  padding: 8px 12px;     
+  text-align: center;    
+}
+
+.copy-btn, .edit-btn, .delete-btn {
+  flex: 1;               
+  font-size: 14px;     
+  border-radius: 4px;    
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}

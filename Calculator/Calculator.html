@@ -88,6 +88,12 @@
   </div>
   
   <script type="module" src="Calculator.js"></script>
+  <script type="module" src="../Home/Profile.js"></script>
   <script src="../Home/theme.js" defer></script>
+    <script type="module">
+    import { setupAuth } from "../Home/auth.js";
+    setupAuth('.auth-container', true, "../Home/main.html", "../Login and Register/index.html");
+  </script>
+
 </body>
 </html>
